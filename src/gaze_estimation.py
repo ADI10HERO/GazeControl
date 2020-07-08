@@ -21,6 +21,7 @@ def handle_image(input_image, width=60, height=60):
 class GazeEst(MainModel):
     def __init__(self, model_path=path, device='CPU'):
         super().__init__(device=device)
+        print("\n\nLoading Gaze Estimation Model")
         self.load_model(model_path)
 
         self.input_name = [i for i in self.net_plugin.inputs.keys()]

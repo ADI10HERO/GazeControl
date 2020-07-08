@@ -13,6 +13,7 @@ class HeadPose(MainModel):
 
     def __init__(self, model_path=path, device='CPU'):
         super().__init__(device=device)
+        print("\n\nLoading Head Pose Model")
         self.load_model(model_path)
 
     def get_output(self, request_id=0):
