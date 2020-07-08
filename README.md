@@ -1,4 +1,4 @@
-# Computer Pointer Controller
+# Gaze Control :eyes:
 
 Control your mouse pointer with the your eyegaze! Just like you always wanted to! 
 
