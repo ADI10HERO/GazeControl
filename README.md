@@ -1,15 +1,42 @@
 # Computer Pointer Controller
 
-*TODO:* Write a short introduction to your project
+Control your mouse pointer with the your eyegaze! Just like you always wanted to! 
+
+This project is the 3rd and final project for Udacity's Intel Edge AI Nanodegree program.
+It not a simple task, many deep learning models need to work in harmony with each other to make it possible.
+
+This is the **overall flow** or the architecture of the system:
+<img src="img/pipeline.png" height="500px">
 
 ## Project Set Up and Installation
-*TODO:* Explain the setup procedures to run your project. For instance, this can include your project directory structure, the models you need to download and where to place them etc. Also include details about how to install the dependencies your project requires.
+
+**Prerequisites and Dependencies:**
+  - Clone this repository
+  - I suggest you make a new virtual environment, either using venv or conda
+  - Activate the environment
+  - Run `pip install -r requirements.txt`
+  - Make sure you can run the "demo" given [here](https://docs.openvinotoolkit.org/latest/index.html) before moving ahead.
+  - Download pre-trained models using the model_downloader scripts if you don't want to use the ones in the intel folder of this repository
+  
+
+*model_downloader scripts can be found at /opt/intel/deployment_tools/tools/model_downloader/downloader.py*
+*example usage?* 
+```sh
+  python3 /opt/intel/deployment_tools/tools/model_downloader/downloader.py --name gaze-estimation-adas-0002 --precisions FP16
+```
+
+
+**If you didn't use the default installation path, I'm sure you're smart enough to find the model_downloader script yourself :P**
 
 ## Demo
-*TODO:* Explain how to run a basic demo of your model.
+* To use webcam
+` python3 src/main.py -i CAM`
+
+* To use example video `python3 src/main.py -i bin/demo.mp4`
+
 
 ## Documentation
-*TODO:* Include any documentation that users might need to better understand your project code. For instance, this is a good place to explain the command line arguments that your project supports.
+
 
 ## Benchmarks
 *TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
@@ -17,11 +44,12 @@
 ## Results
 *TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
 
-## Stand Out Suggestions
-This is where you can provide information about the stand out suggestions that you have attempted.
-
-### Async Inference
-If you have used Async Inference in your code, benchmark the results and explain its effects on power and performance of your project.
-
-### Edge Cases
-There will be certain situations that will break your inference flow. For instance, lighting changes or multiple people in the frame. Explain some of the edge cases you encountered in your project and how you solved them to make your project more robust.
+## Note:
+- Couldn't do any "standout suggestions" because of time constraints
+- Any contribution appreaciated
+- Steps for contributing?
+    - Clone the repo
+    - Make the change
+    - Make a PR 
+    - Please include test results like successful working screenshots / any logs in the PR
+    - Get it Merged :")
