@@ -6,7 +6,7 @@ This project is the 3rd and final project for Udacity's Intel Edge AI Nanodegree
 It not a simple task, many deep learning models need to work in harmony with each other to make it possible.
 
 This is the **overall flow** or the architecture of the system:
-<img src="img/pipeline.png" height="500px">
+<center><img src="img/pipeline.png" height="500px"></center>
 
 ## Project Set Up and Installation
 
