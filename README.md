@@ -37,12 +37,45 @@ This is the **overall flow** or the architecture of the system:
 
 ## Documentation
 
+Let's talk about flags one should actually know / care about..
+
+- `-i` This is for input path, which can be either "CAM" or path to a video file example `bin/demo.mp4`
+- `-v` Verbose, example `-v True` or `-v False`, if true you wiil get information of inference times of different models for about evey 25 frames, also if set then the inference times will be logged into a file in csv format.
+- `-f` Frames, Number of frames for which model info is to be printed (yes, you guessed it), default is 25 frames, it is also the count of frames to wait before any detection is done.
+- `-l` If needed, this flag should be used to provide the path for an OpenVINO cpu extension.
+- `-d` To specify the hardware where the models will be running. Default is CPU.
+- `-pt` To state the confidence the models need to have in order to consider an actual detection
 
 ## Benchmarks
-*TODO:* Include the benchmark results of running your model on multiple hardwares and multiple model precisions. Your benchmarks can include: model loading time, input/output processing time, model inference time etc.
+
+- Following benchmarks are taken on FP16 precision
+
+|     Model     | Model load time | Avg. Inference time |
+| ------------- | --------------- | ------------------- |
+| Face Detector |     0.2127      |      0.1412         |
+| Face Landmark |     0.0535      |      0.0067         |
+| Head Pose     |     0.0696      |      0.0110         |
+| Gaze Est.     |     0.0835      |      0.0102         |
+
+- Following benchmarks are taken on FP32 precision
+
+|     Model     | Model load time | Avg. Inference time |
+| ------------- | --------------- | ------------------- |
+| Face Detector |     0.2078      |      0.1409         |
+| Face Landmark |     0.0501      |      0.0037         |
+| Head Pose     |     0.0635      |      0.0092         |
+| Gaze Est.     |     0.0796      |      0.0098         |
+
+***Note*** : *Benchmarks were taken on CPU (intel core i5 8th Gen)*
 
 ## Results
-*TODO:* Discuss the benchmark results and explain why you are getting the results you are getting. For instance, explain why there is difference in inference time for FP32, FP16 and INT8 models.
+
+- We can clearly see in both precisions face detector took most resources be it load time or infer time.
+Rest all models are blazingly fast when compared to face detector.
+- Both precision models do equally good more or less
+- Even w.r.t accuracy there wasn't any noticiable difference between those models,and we can always use hardware accelarators to boost performance of lower precision models.
+- Bottle Neck? One can say, it's the face detector model, solution? Can be finding a better pre-trained one or training one yourself. :D
+
 
 ## Note:
 - Couldn't do any "standout suggestions" because of time constraints
